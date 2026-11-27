@@ -47,7 +47,9 @@ function render() {
   });
   $('#all-publications-count').textContent = ` (${publications.length})`;
   $('#first-author-count').textContent = ` (${publications.filter(isFirstAuthor).length})`;
-  $('#publication-count').textContent = `${visible.length} ${visible.length === 1 ? 'publication' : 'publications'}`;
+  const resultCount = $('#publication-count');
+  resultCount.classList.toggle('visually-hidden', terms.length === 0);
+  resultCount.textContent = `${visible.length}${terms.length ? ' matching' : ''} ${visible.length === 1 ? 'publication' : 'publications'}`;
   $('#empty-state').hidden = visible.length !== 0;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const video = list.querySelector('video');
@@ -119,7 +121,10 @@ $('#download-bib').addEventListener('click', () => {
 
 fetch('publications.json', { cache: 'no-cache' }).then(response => { if (!response.ok) throw new Error('Publication data unavailable'); return response.json(); }).then(data => {
   publications = data.sort((a, b) => b.year - a.year); render();
-}).catch(() => { $('#publication-count').textContent = 'The publication list could not be loaded. Please use the Google Scholar link above.'; });
+}).catch(() => {
+  $('#publication-count').classList.remove('visually-hidden');
+  $('#publication-count').textContent = 'The publication list could not be loaded. Please use the Google Scholar link above.';
+});
 
 if ('IntersectionObserver' in window) {
   const navObserver = new IntersectionObserver(entries => entries.forEach(entry => {
