@@ -1,6 +1,6 @@
 'use strict';
 
-const state = { query: '' };
+const state = { query: '', authorship: 'all' };
 let publications = [];
 let currentCitation = '';
 let lastCitationButton = null;
@@ -9,6 +9,7 @@ const $ = selector => document.querySelector(selector);
 const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const authorHTML = text => escapeHTML(text).replace(/Zhide Zhong[\*†]*|Z Zhong[\*†]*/g, '<strong>$&</strong>');
 const linkHTML = (url, label) => `<a href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+const isFirstAuthor = paper => paper.firstAuthor === true || paper.equalContribution === true;
 
 function paperHTML(paper) {
   let visual = '';
@@ -30,6 +31,7 @@ function render() {
   demoObserver?.disconnect();
   const terms = state.query.trim().toLowerCase().split(/\s+/).filter(Boolean);
   const visible = publications.filter(paper => {
+    if (state.authorship === 'first' && !isFirstAuthor(paper)) return false;
     const haystack = [paper.title, paper.authors, paper.year, paper.venueLabel, paper.short].join(' ').toLowerCase();
     return terms.every(term => haystack.includes(term));
   });
@@ -40,6 +42,11 @@ function render() {
     lastYear = paper.year;
     return heading + paperHTML(paper);
   }).join('');
+  document.querySelectorAll('[data-authorship]').forEach(button => {
+    button.setAttribute('aria-pressed', String(button.dataset.authorship === state.authorship));
+  });
+  $('#all-publications-count').textContent = ` (${publications.length})`;
+  $('#first-author-count').textContent = ` (${publications.filter(isFirstAuthor).length})`;
   $('#publication-count').textContent = `${visible.length} ${visible.length === 1 ? 'publication' : 'publications'}`;
   $('#empty-state').hidden = visible.length !== 0;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -60,8 +67,14 @@ function syncVideoButton(video) {
 }
 
 $('#publication-search').addEventListener('input', event => { state.query = event.target.value; render(); });
+$('.publication-filters').addEventListener('click', event => {
+  const button = event.target.closest('[data-authorship]');
+  if (!button || button.dataset.authorship === state.authorship) return;
+  state.authorship = button.dataset.authorship;
+  render();
+});
 $('#reset-filters').addEventListener('click', () => {
-  state.query = ''; $('#publication-search').value = ''; render(); $('#publication-search').focus();
+  state.query = ''; state.authorship = 'all'; $('#publication-search').value = ''; render(); $('#publication-search').focus();
 });
 
 $('#publication-list').addEventListener('click', event => {

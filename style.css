@@ -11,12 +11,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,pre:focus-visible{outli
 .section-header p{margin:14px 0 0}
 .publication-header{padding-top:4px;padding-bottom:0}
 .authorship-note{font-size:14px;line-height:1.6}
-.publication-controls{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:16px}
+.publication-controls{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-top:16px}
 .text-link,.cite-button{border:0;padding:0;background:none;color:var(--accent);font:inherit;text-align:left;cursor:pointer}
 .text-link:hover,.cite-button:hover{color:var(--accent-hover)}
+.publication-filters{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;font-size:14px}
+.publication-filter{padding:4px 0;border-bottom:2px solid transparent}
+.publication-filter[aria-pressed="true"]{color:var(--text);font-weight:700;border-bottom-color:currentColor}
 .publication-search{width:155px;flex-shrink:0}
 .publication-search input{width:100%;min-width:0;border:1px solid var(--border);border-radius:2px;background:var(--bg);color:var(--text);font-size:14px;padding:5px 7px}
-.publication-count{font-size:14px;margin:0!important}
+.publication-count{font-size:14px;margin:10px 0 0!important}
 .publication-year{font-size:18px;font-weight:400;margin:18px 16px 0}
 .paper{align-items:center}
 .paper h3{font-size:16px;line-height:1.4;margin:0 0 3px}

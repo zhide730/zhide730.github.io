@@ -13,9 +13,9 @@
   <link rel="canonical" href="https://zhide730.github.io/">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="stylesheet.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20261127-authorship">
   <title>Zhide Zhong | Robotics & Embodied AI</title>
-  <script src="app.js?v=20261127-refresh" defer></script>
+  <script src="app.js?v=20261127-authorship" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Zhide Zhong","alternateName":"钟至德","url":"https://zhide730.github.io/","image":"https://zhide730.github.io/assets/portrait.jpg","jobTitle":"Ph.D. student","affiliation":{"@type":"CollegeOrUniversity","name":"The Hong Kong University of Science and Technology (Guangzhou)"},"sameAs":["https://scholar.google.com/citations?user=msy4tL4AAAAJ&hl=en","https://github.com/zhide730"],"knowsAbout":["Embodied AI","Robot learning","Vision-language-action models","World-action models","3D vision"]}</script>
 </head>
 <body>
@@ -36,12 +36,16 @@
         <h2 id="publications-title">Publications</h2>
         <p class="authorship-note"><strong>Zhide Zhong</strong> is bolded. * Equal contribution; † project lead.</p>
         <div class="publication-controls">
-          <p class="publication-count" id="publication-count" role="status" aria-live="polite"></p>
+          <div class="publication-filters" role="group" aria-label="Filter publications by authorship">
+            <button class="text-link publication-filter" type="button" data-authorship="all" aria-pressed="true" aria-controls="publication-list">All publications<span id="all-publications-count"></span></button>
+            <button class="text-link publication-filter" type="button" data-authorship="first" aria-pressed="false" aria-controls="publication-list">First / co-first author<span id="first-author-count"></span></button>
+          </div>
           <label class="publication-search"><span class="visually-hidden">Search publications</span><input type="search" id="publication-search" placeholder="Search papers…" autocomplete="off"></label>
         </div>
+        <p class="publication-count" id="publication-count" role="status" aria-live="polite"></p>
       </div>
       <div id="publication-list" class="papers publication-list" aria-label="Publications"></div>
-      <div id="empty-state" class="empty-state" hidden><h3>No matching papers.</h3><p>Try another title, author, or year.</p><button class="text-link" type="button" id="reset-filters">Reset filters</button></div>
+      <div id="empty-state" class="empty-state" hidden><h3>No matching papers.</h3><p>Try another title, author, or year, or switch to all publications.</p><button class="text-link" type="button" id="reset-filters">Reset filters</button></div>
       <noscript><p class="section-header">Enable JavaScript to filter papers, or <a href="https://scholar.google.com/citations?user=msy4tL4AAAAJ&amp;hl=en">browse the publication list on Google Scholar</a>.</p></noscript>
       <div class="publication-bottom section-header"><button class="text-link" id="download-bib" type="button">Download bibliography (.bib)</button></div>
     </section>
