@@ -9,6 +9,7 @@ Publish the root of the `main` branch with GitHub Pages. `.nojekyll` preserves t
 - `app.js`: authorship filtering, search, citations, and demo controls.
 - `stylesheet.css`: original template CSS; fonts are served locally.
 - `style.css`: accessibility and responsive additions.
+- `robots.txt` and `sitemap.xml`: crawler access and the canonical homepage URL.
 - `assets/`: original profile and research visuals, local fonts, bibliography, and one short demo clip. Font licenses are included in `assets/fonts/`.
 
 The publication list defaults to all work, with a switch for first- and co-first-author work. Search applies within the selected view.
@@ -22,3 +23,5 @@ Original README is retained in `TEMPLATE-README.txt`.
 Canonical address: https://zhide730.github.io/
 Repository: zhide730/zhide730.github.io
 GitHub Pages source: main branch, root directory.
+
+For Google indexing, add `https://zhide730.github.io/` as a URL-prefix property in Google Search Console, verify ownership with Google's HTML tag or file, submit `sitemap.xml`, and use URL Inspection to request indexing of the homepage. Keep the verification tag or file in the repository. Publishing a sitemap helps discovery but does not guarantee indexing or ranking.
