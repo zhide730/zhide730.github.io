@@ -104,7 +104,7 @@ $('#download-bib').addEventListener('click', () => {
   const url = URL.createObjectURL(blob), anchor = document.createElement('a'); anchor.href = url; anchor.download = 'zhide-zhong-publications.bib'; document.body.append(anchor); anchor.click(); anchor.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
 
-fetch('publications.json').then(response => { if (!response.ok) throw new Error('Publication data unavailable'); return response.json(); }).then(data => {
+fetch('publications.json', { cache: 'no-cache' }).then(response => { if (!response.ok) throw new Error('Publication data unavailable'); return response.json(); }).then(data => {
   publications = data.sort((a, b) => b.year - a.year); render();
 }).catch(() => { $('#publication-count').textContent = 'The publication list could not be loaded. Please use the Google Scholar link above.'; });
 
