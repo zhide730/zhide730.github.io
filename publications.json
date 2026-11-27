@@ -2,6 +2,7 @@
   {
     "id": "vpp2",
     "short": "VPP2",
+    "featured": true,
     "title": "Video Prediction Policy 2: Predict Better, Act Better",
     "authors": "Yanjiang Guo*, Haodong Yan*, Zhide Zhong*, Zhongru Zhang*, Qingyuan Yang*, Qingzhou Lu, Xiaoyu Chen, Yen-Jen Wang, Shuying Deng, Chenghan Yang, Puzhen Yuan, Chenxin Liu, Tun Ban, Xiang Zhu, Yichen Liu, Kun Feng, Haoang Li, Jianyu Chen",
     "year": 2026,
