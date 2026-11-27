@@ -11,6 +11,10 @@
     "paper": "https://arxiv.org/abs/2610.10270",
     "project": "https://robert-gyj.github.io/video-prediction-policy-2/",
     "code": "https://github.com/roboterax/video-prediction-policy-2",
+    "press": {
+      "name": "QbitAI (量子位)",
+      "url": "https://www.qbitai.com/2026/10/502125.html"
+    },
     "role": "First author · Equal contribution",
     "video": "assets/vpp2-demo.mp4",
     "image": "assets/vpp2-overview.png",

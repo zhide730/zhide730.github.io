@@ -18,7 +18,7 @@ function paperHTML(paper) {
   } else if (paper.image) {
     visual = `<div class="paper-media"><a class="one paper-visual" href="${escapeHTML(paper.project || paper.paper)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHTML(paper.short)} research overview"><img src="${escapeHTML(paper.image)}" alt="${escapeHTML(paper.imageAlt || paper.short + ' research overview')}" loading="lazy" width="160" height="160"></a></div>`;
   }
-  const links = [linkHTML(paper.paper, 'paper'), paper.project && linkHTML(paper.project, 'project page'), paper.code && linkHTML(paper.code, 'code'), paper.journal && linkHTML(paper.journal, 'journal'), paper.demo && linkHTML(paper.demo, 'video'), `<button type="button" class="cite-button" data-cite="${escapeHTML(paper.id)}" aria-label="BibTeX for ${escapeHTML(paper.short || paper.title)}">bibtex</button>`].filter(Boolean).join(' / ');
+  const links = [linkHTML(paper.paper, 'paper'), paper.project && linkHTML(paper.project, 'project page'), paper.code && linkHTML(paper.code, 'code'), paper.journal && linkHTML(paper.journal, 'journal'), paper.demo && linkHTML(paper.demo, 'video'), paper.press && linkHTML(paper.press.url, escapeHTML(paper.press.name)), `<button type="button" class="cite-button" data-cite="${escapeHTML(paper.id)}" aria-label="BibTeX for ${escapeHTML(paper.short || paper.title)}">bibtex</button>`].filter(Boolean).join(' / ');
   return `<article class="paper publication-card${paper.featured ? ' highlighted' : ''}${visual ? '' : ' no-image'}" data-paper-id="${escapeHTML(paper.id)}">
     ${visual}<div class="paper-info">
     <h3><a class="papertitle" href="${escapeHTML(paper.paper)}" target="_blank" rel="noopener noreferrer">${escapeHTML(paper.title)}</a></h3>
