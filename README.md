@@ -4,7 +4,7 @@ Static academic website using Jon Barron’s original template.
 
 Publish the root of the `main` branch with GitHub Pages. `.nojekyll` preserves the static files as provided.
 
-- `index.html`: biography, education, and page structure.
+- `index.html`: biography, recent updates, education, and page structure.
 - `publications.json`: the single publication list and media links.
 - `app.js`: authorship filtering, search, citations, and demo controls.
 - `stylesheet.css`: original template CSS; fonts are served locally.

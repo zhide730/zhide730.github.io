@@ -9,6 +9,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,pre:focus-visible{outli
 .bio-text p{margin:16px 0}
 .bio-photo img{aspect-ratio:1;object-fit:cover}
 .section-header p{margin:14px 0 0}
+.updates{padding-top:0;padding-bottom:24px}
+.updates-list{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px}
+.updates-list li{display:grid;grid-template-columns:90px minmax(0,1fr);gap:12px;align-items:baseline}
+.updates-list time{font-size:14px;color:var(--text-muted);white-space:nowrap}
 .publication-header{padding-top:4px;padding-bottom:0}
 .authorship-note{font-size:14px;line-height:1.6}
 .publication-controls{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-top:16px}
